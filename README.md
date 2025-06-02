@@ -1,4 +1,5 @@
 📦 Smart Inventory Management Web App
+
 A Next.js powered web application to efficiently manage inventory products.
 This app allows users to view, add, edit, and delete products with features like sorting, filtering, and responsive design for seamless product management.
 
