@@ -22,7 +22,7 @@ const Home: NextPage = () => {
       setLoading(true);
       const res = await fetchProducts();
       setProducts(res.data);
-    } catch (_error) {
+    } catch (error) {
       toast.error("Failed to fetch products");
     } finally {
       setLoading(false);
