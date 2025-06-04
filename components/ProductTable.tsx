@@ -1,5 +1,6 @@
 import React, { useState, useMemo } from "react";
 import { useRouter } from "next/router";
+import Image from "next/image";
 
 type Product = {
   id: string;
@@ -19,10 +20,11 @@ export const ProductTable: React.FC<Props> = ({ products, onDelete }) => {
   const [sortAsc, setSortAsc] = useState(true);
   const [filterExpiring, setFilterExpiring] = useState(false);
 
-  const today = new Date();
   const filterDays = 7;
 
   const sortedProducts = useMemo(() => {
+    const today = new Date(); // move inside to avoid stale capture
+
     let filtered = products;
     if (filterExpiring) {
       filtered = filtered.filter((p) => {
@@ -45,6 +47,7 @@ export const ProductTable: React.FC<Props> = ({ products, onDelete }) => {
   };
 
   const isExpiringSoon = (dateStr: string) => {
+    const today = new Date();
     const exp = new Date(dateStr);
     const diffDays = (exp.getTime() - today.getTime()) / (1000 * 3600 * 24);
     return diffDays >= 0 && diffDays <= filterDays;
@@ -99,13 +102,18 @@ export const ProductTable: React.FC<Props> = ({ products, onDelete }) => {
                   } hover:bg-blue-50 transition`}
                 >
                   <td className="border border-gray-300 p-2">
-                    <img
-                      src={imgUrl || "/placeholder.png"}
-                      alt={name}
-                      className="w-16 h-16 object-contain rounded-md"
-                    />
+                    <div className="relative w-16 h-16">
+                      <Image
+                        src={imgUrl || "/placeholder.png"}
+                        alt={name}
+                        fill
+                        className="object-contain rounded-md"
+                      />
+                    </div>
                   </td>
-                  <td className="border border-gray-300 p-2 font-medium text-gray-900">{name}</td>
+                  <td className="border border-gray-300 p-2 font-medium text-gray-900">
+                    {name}
+                  </td>
                   <td className="border border-gray-300 p-2">{quantity}</td>
                   <td className="border border-gray-300 p-2">{expDate}</td>
                   <td className="border border-gray-300 p-2 flex gap-2">

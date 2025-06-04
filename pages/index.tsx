@@ -22,7 +22,7 @@ const Home: NextPage = () => {
       setLoading(true);
       const res = await fetchProducts();
       setProducts(res.data);
-    } catch (error) {
+    } catch (_error) {
       toast.error("Failed to fetch products");
     } finally {
       setLoading(false);
@@ -38,8 +38,8 @@ const Home: NextPage = () => {
       await deleteProduct(id);
       toast.success("Product deleted successfully");
       loadProducts();
-    } catch {
-      
+    } catch (_error) {
+      toast.error("Failed to delete product");
     }
   };
 

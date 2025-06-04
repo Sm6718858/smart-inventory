@@ -4,10 +4,17 @@ import { ProductForm } from "../components/ProductForm";
 import { addProduct } from "../utils/api";
 import toast, { Toaster } from "react-hot-toast";
 
+interface ProductFormData {
+  name: string;
+  quantity: number | string; // can be string from form, convert later
+  expDate: string;
+  imgUrl?: string;
+}
+
 const Add: NextPage = () => {
   const router = useRouter();
 
-  const onSubmit = async (data: any) => {
+  const onSubmit = async (data: ProductFormData) => {
     try {
       const payload = {
         name: data.name,
@@ -19,7 +26,8 @@ const Add: NextPage = () => {
       await addProduct(payload);
       toast.success("Product added successfully");
       router.push("/");
-    } catch (error) {
+    } catch (_error) {
+      // prefix _ to mark as intentionally unused
       toast.error("Failed to add product");
     }
   };

@@ -13,6 +13,13 @@ type Product = {
   imgUrl?: string;
 };
 
+interface ProductFormData {
+  name: string;
+  quantity: number | string;
+  expDate: string;
+  imgUrl?: string;
+}
+
 const EditProduct: NextPage = () => {
   const router = useRouter();
   const { id } = router.query;
@@ -26,7 +33,7 @@ const EditProduct: NextPage = () => {
         setLoading(true);
         const res = await fetchProductById(id as string);
         setProduct(res.data);
-      } catch (error) {
+      } catch (_error) {
         toast.error("Failed to load product");
       } finally {
         setLoading(false);
@@ -35,7 +42,7 @@ const EditProduct: NextPage = () => {
     loadProduct();
   }, [id]);
 
-  const onSubmit = async (data: any) => {
+  const onSubmit = async (data: ProductFormData) => {
     try {
       const payload = {
         name: data.name,
@@ -47,7 +54,7 @@ const EditProduct: NextPage = () => {
       await updateProduct(id as string, payload);
       toast.success("Product updated successfully");
       router.push("/");
-    } catch (error) {
+    } catch (_error) {
       toast.error("Failed to update product");
     }
   };

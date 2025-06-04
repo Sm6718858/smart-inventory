@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
+import Image from "next/image";
 
 type FormValues = {
   name: string;
@@ -34,7 +35,6 @@ export const ProductForm: React.FC<Props> = ({
     defaultValues?.imgUrl || ""
   );
 
-  // Watch file input for preview
   const imgFile = watch("imgFile");
 
   useEffect(() => {
@@ -73,10 +73,7 @@ export const ProductForm: React.FC<Props> = ({
       </div>
 
       <div className="mb-6">
-        <label
-          className="block text-gray-700 font-semibold mb-2"
-          htmlFor="quantity"
-        >
+        <label className="block text-gray-700 font-semibold mb-2" htmlFor="quantity">
           Quantity
         </label>
         <input
@@ -100,10 +97,7 @@ export const ProductForm: React.FC<Props> = ({
       </div>
 
       <div className="mb-6">
-        <label
-          className="block text-gray-700 font-semibold mb-2"
-          htmlFor="expDate"
-        >
+        <label className="block text-gray-700 font-semibold mb-2" htmlFor="expDate">
           Expiry Date
         </label>
         <input
@@ -122,10 +116,7 @@ export const ProductForm: React.FC<Props> = ({
       </div>
 
       <div className="mb-6">
-        <label
-          className="block text-gray-700 font-semibold mb-2"
-          htmlFor="imgFile"
-        >
+        <label className="block text-gray-700 font-semibold mb-2" htmlFor="imgFile">
           Product Image (Upload)
         </label>
         <input
@@ -140,11 +131,15 @@ export const ProductForm: React.FC<Props> = ({
       {imagePreview && (
         <div className="mb-6 text-center">
           <p className="font-semibold text-gray-700 mb-2">Image Preview:</p>
-          <img
-            src={imagePreview}
-            alt="Preview"
-            className="mx-auto w-36 h-36 object-contain rounded-md border"
-          />
+          <div className="relative mx-auto w-36 h-36">
+            <Image
+              src={imagePreview}
+              alt="Preview"
+              layout="fill"
+              objectFit="contain"
+              className="rounded-md border"
+            />
+          </div>
         </div>
       )}
 
