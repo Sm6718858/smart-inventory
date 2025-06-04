@@ -6,11 +6,11 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "*.example.com", // More secure than using '**'
+        hostname: "*.example.com", // Using wildcard for subdomains
       },
       {
         protocol: "https",
-        hostname: "cdn.example.com",
+        hostname: "cdn.example.com", // Allowing CDN-hosted images
       },
     ],
   },
