@@ -33,11 +33,7 @@ const EditProduct: NextPage = () => {
         setLoading(true);
         const res = await fetchProductById(id as string);
         setProduct(res.data);
-<<<<<<< HEAD
-      } catch (_error) {
-=======
-      } catch (_) {
->>>>>>> ec4a123624c387f3fbf5d9499318cbee0f20bcd6
+      } catch {
         toast.error("Failed to load product");
       } finally {
         setLoading(false);
@@ -58,11 +54,7 @@ const EditProduct: NextPage = () => {
       await updateProduct(id as string, payload);
       toast.success("Product updated successfully");
       router.push("/");
-<<<<<<< HEAD
-    } catch (_error) {
-=======
-    } catch (_) {
->>>>>>> ec4a123624c387f3fbf5d9499318cbee0f20bcd6
+    } catch {
       toast.error("Failed to update product");
     }
   };
