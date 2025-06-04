@@ -26,7 +26,7 @@ const EditProduct: NextPage = () => {
         setLoading(true);
         const res = await fetchProductById(id as string);
         setProduct(res.data);
-      } catch (error) {
+      } catch (_) {
         toast.error("Failed to load product");
       } finally {
         setLoading(false);
@@ -47,7 +47,7 @@ const EditProduct: NextPage = () => {
       await updateProduct(id as string, payload);
       toast.success("Product updated successfully");
       router.push("/");
-    } catch (error) {
+    } catch (_) {
       toast.error("Failed to update product");
     }
   };

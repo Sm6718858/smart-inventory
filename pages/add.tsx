@@ -19,7 +19,7 @@ const Add: NextPage = () => {
       await addProduct(payload);
       toast.success("Product added successfully");
       router.push("/");
-    } catch (error) {
+    } catch (_) {
       toast.error("Failed to add product");
     }
   };
