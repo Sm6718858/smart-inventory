@@ -5,10 +5,18 @@ const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: 'https',
-        hostname: '**',
+        protocol: "https",
+        hostname: "*.example.com", // More secure than using '**'
+      },
+      {
+        protocol: "https",
+        hostname: "cdn.example.com",
       },
     ],
+  },
+  experimental: {
+    optimizeCss: true, // Helps in reducing CSS bundle size
+    scrollRestoration: true, // Improves UX on navigation
   },
 };
 
