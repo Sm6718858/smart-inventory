@@ -1,4 +1,5 @@
 📦 Smart Inventory Management Web App
+<<<<<<< HEAD
 A Next.js powered web application to efficiently manage inventory products.
 This app allows users to view, add, edit, and delete products with features like sorting, filtering, and responsive design for seamless product management.
 
@@ -8,6 +9,18 @@ Built with Next.js, it interacts with a mock REST API to perform CRUD operations
 
 Dynamic routing
 
+=======
+
+A Next.js powered web application to efficiently manage inventory products.
+This app allows users to view, add, edit, and delete products with features like sorting, filtering, and responsive design for seamless product management.
+
+📌 Project Overview
+This Smart Inventory Management Web App is designed to help users maintain product inventories effortlessly.
+Built with Next.js, it interacts with a mock REST API to perform CRUD operations on products, showcasing modern frontend development best practices such as:
+
+Dynamic routing
+
+>>>>>>> 82d892ba5e66d7b0e6df3dbeb6001fb4c661549a
 State management
 
 API integration
@@ -16,6 +29,7 @@ API integration
 🧮 Core Features
 ➤ Dashboard (/)
 
+<<<<<<< HEAD
 Product image
 
 Name
@@ -29,6 +43,18 @@ Action buttons for editing and deleting products
 Sort products by expiry date (ascending/descending)
 
 Filter products nearing expiry within 7 days
+=======
+-> Product image
+-> Name
+-> Quantity
+-> Expiry date
+
+=> Action buttons for editing and deleting products
+
+=> Sort products by expiry date (ascending/descending)
+
+=> Filter products nearing expiry within 7 days
+>>>>>>> 82d892ba5e66d7b0e6df3dbeb6001fb4c661549a
 
 ➤ Add Product (/add)
 Add new products via:
@@ -59,6 +85,7 @@ Toast notifications for success and failure
 Fully responsive design for mobile and desktop
 
 🛠 Tech Stack
+<<<<<<< HEAD
 Next.js (React Framework)
 
 Axios (API Requests)
@@ -73,6 +100,15 @@ Clone the repository:
 bash
 Copy
 Edit
+=======
+->Next.js (React Framework)
+->Axios (API Requests)
+->Tailwind CSS (Styling)
+->MockAPI.io (Mock Backend)
+
+🚀 Setup Instructions
+Clone the repository:
+>>>>>>> 82d892ba5e66d7b0e6df3dbeb6001fb4c661549a
 # 1. Clone this in VS Code
 git clone https://github.com/Sm6718858/smart-inventory
 
