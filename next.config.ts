@@ -15,7 +15,7 @@ const nextConfig: NextConfig = {
     ],
   },
   experimental: {
-    optimizeCss: true, // Helps in reducing CSS bundle size
+    optimizeCss: false, // Helps in reducing CSS bundle size
     scrollRestoration: true, // Improves UX on navigation
   },
 };
