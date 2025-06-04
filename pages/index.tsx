@@ -38,8 +38,8 @@ const Home: NextPage = () => {
       await deleteProduct(id);
       toast.success("Product deleted successfully");
       loadProducts();
-    } catch (error) {
-      toast.error("Failed to delete product");
+    } catch {
+      
     }
   };
 
